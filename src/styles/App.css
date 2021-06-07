@@ -1,12 +1,33 @@
 details {
   padding: 15px;
   background-color: #f6f7f8;
-  margin-bottom: 20px;
 }
 
 /*
-Estilização texto principal Aditum pagamentos
+Estilização texto principal, titulo: "Aditum pagamentos"
 */
-.text-large {
+.title-large {
   font-size: 130%;
 }
+
+
+  .line {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    border-top: 2px solid rgba(0,0,0,.100);
+}
+
+
+
+
+/* summary::-webkit-details-marker {
+  display: none;
+}
+<Button variant="primary" type="submit">
+                Checkout
+              </Button>
+summary:before {
+  content: "\25b8";  the new icon
+  color: #696f7c;
+  margin-right: 5px;
+} */

@@ -1,54 +1,311 @@
 import './styles/App.css';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <details>
-      <summary className="text-large">Aditum pagamentos</summary>
-      <div className="App">
-        <main >
-          <div className="text-left">
-            <h6>Método de pagamentos aditum</h6>
+    <div className="App">
+      <main >
+        {/* Details para Aditum pagementos */}
+        <details>
+          <summary className="title-large">Aditum pagamentos</summary>
+          <div>
+            <h6 className="text-left small">Método de pagamentos aditum</h6>
           </div>
-          <div className="">
-            <Form>
-              <Form.Group>
-                <Form.Control size="sm" as="select">
-                  <option>Yes</option>
-                  <option>No</option>
-                </Form.Control>
-                <Form.Control size="sm" as="select">
-                  <option>Yes</option>
-                  <option>No</option>
-                </Form.Control>
-                <Form.Control size="sm" as="select">
-                  <option>Yes</option>
-                  <option>No</option>
-                </Form.Control>
+          <div className="container">
+            <Form className="text-right">
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Ativar
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </Form.Control>
+                  <Form.Text>
+                    Ativar método de pagamento Aditum.
+                </Form.Text>
+                </Col>
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>ID do antiffraude</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                  We'll never share your email with anyone else.
-          </Form.Text>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Ambiente
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>Homologação</option>
+                    <option>Produtivo</option>
+                  </Form.Control>
+                  <Form.Text>
+                    Selecione entre homologação para teste de desenvolvimento e produção
+                </Form.Text>
+                </Col>
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>CNPJ</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Tipo de antiffraude
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>Konduto</option>
+                    <option>CleanSale</option>
+                  </Form.Control>
+                </Col>
               </Form.Group>
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
+              <Form.Group as={Row} controlId="antiffraude">
+                <Form.Label column sm={4}>
+                  ID do antiffraude
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="text" placeholder="FDOSDFOAPSDP" />
+                </Col>
               </Form.Group>
-              <Button variant="primary" type="submit">
-                Submit
-        </Button>
+              <Form.Group as={Row} controlId="CNPJ">
+                <Form.Label column sm={4}>
+                  CNPJ
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="text" placeholder="000000000000/000" />
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="merchantToken">
+                <Form.Label column sm={4}>
+                  Merchant Token
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="text" placeholder="dajsn_ajsdnasdapLKNDLASNDFL" />
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="timeExpire">
+                <Form.Label column sm={4}>
+                  Tempo de expiração do pedido
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="number" min="0" placeholder="3" />
+                  <Form.Text>
+                    Depois de quanto o pedido pendente de pagamento deve ser cancelado. Defina em dias.
+                </Form.Text>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Status do pedido criado
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>pending</option>
+                    <option>analysis</option>
+                    <option>ready</option>
+                    <option>No</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Definições do endereço - rua
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>line 0</option>
+                    <option>line 1</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Definições do endereço - rua
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>line 0</option>
+                    <option>line 1</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Definições do endereço - Número
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>line 0</option>
+                    <option>line 1</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Definições do endereço - Complemento
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>line 0</option>
+                    <option>line 1</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Definições do endereço - Bairro
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>line 0</option>
+                    <option>line 1</option>
+                  </Form.Control>
+                </Col>
+              </Form.Group>
             </Form>
           </div>
-        </main>
-      </div>
-    </details>
+        </details>
+
+        {/* Details para Aditum Cartão de Crédito */}
+
+        <hr className="line" />
+        <details>
+          <summary className="title-large">Aditum Cartão de Crédito</summary>
+          <h6 className="text-left small">Aditum - pagamentos por cartão de crédito</h6>
+          <div className="container">
+            <Form className="text-right">
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Ativar cartão de crédito
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>yes</option>
+                    <option>no</option>
+                  </Form.Control>
+                  <Form.Text>
+                    Ativar pagamento com cartão de crédito atráves da Aditum.
+                  </Form.Text>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Máximo de parcelas
+              </Form.Label>
+                <Col>
+                  <Form.Control size="sm" type="number" min="0" max="20" placeholder="20" >
+                    
+                  </Form.Control>
+                  <Form.Text>
+                    Selecione o número limite permitido nos cartões de crédito.
+                  </Form.Text>
+                </Col>
+              </Form.Group>
+            </Form>
+          </div>
+        </details>
+
+        {/* Details para Aditum Cartão de Débito */}
+
+        <hr className="line" />
+        <details>
+          <summary className="title-large">Aditum Cartão de débito</summary>
+          <h6 className="text-left small">Aditum - pagamentos por cartão de débito</h6>
+          <div className="container">
+            <Form className="text-right">
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Ativar cartão de Débito
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>yes</option>
+                    <option>no</option>
+                  </Form.Control>
+                  <Form.Text>
+                    Ativar pagamento com cartão de débito atráves da Aditum.
+                  </Form.Text>
+                </Col>
+              </Form.Group>
+            </Form>
+          </div>
+        </details>
+
+        {/* Details para Aditum Boleto */}
+
+        <hr className="line" />
+        <details>
+          <summary className="title-large">Aditum Boleto</summary>
+          <div>
+            <h6 className="text-left small">
+              Aditum - pagamentos por boleto bancário.
+            </h6>
+          </div>
+          <div className="container">
+            <Form className="text-right">
+              <Form.Group as={Row}>
+                <Form.Label column sm={4}>
+                  Ativar Boleto
+                </Form.Label>
+                <Col>
+                  <Form.Control size="sm" as="select">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </Form.Control>
+                  <Form.Text>
+                    Ativar pagamentos com boleto bancário através da Aditum.
+                  </Form.Text>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="validade">
+                <Form.Label column sm={4}>
+                  Dias para vencimentos do boleto
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="number" min="0" placeholder="0" />
+                  <Form.Text>Tempo em dias para o vencimento do boleto a parti da data de gereção</Form.Text>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="multa">
+                <Form.Label column sm={4}>
+                  Dias para multa
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="number" min="0" placeholder="0" />
+                  <Form.Text>Tempo em dias para a aplicação de multa do boleto a parti da data de gereção</Form.Text>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="fixo-multa">
+                <Form.Label column sm={4}>
+                  Valor fixo da multa
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="number" min="0" placeholder="0" />
+                  <Form.Text>Tempo em dias para a aplicação de multa do boleto a parti da data de gereção</Form.Text>
+                </Col>
+              </Form.Group>
+              <Form.Group as={Row} controlId="percentuaMulta">
+                <Form.Label column sm={4}>
+                  Valor percentual da multa
+                </Form.Label>
+                <Col sm={8}>
+                  <Form.Control type="text" placeholder="3" />
+                  <Form.Text>
+                    Valor percentual sobre o valor original aplicados de multa.
+                </Form.Text>
+                </Col>
+              </Form.Group>
+            </Form>
+          </div>
+        </details>
+        <hr className="line" />
+        <div className="container">
+            <Form>
+                <Form.Group id="formGridCheckbox">
+                    <Form.Check type="checkbox" label="Boleto bancário" />
+                </Form.Group>
+                <hr className="line"/>
+                <Button variant="primary" type="submit">
+                    Place Order
+                </Button>
+            </Form>
+        </div>
+      </main>
+    </div>
   );
 }
 
