@@ -1,5 +1,6 @@
 import './styles/App.css';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import bandeira from './images/Bandeiras/bandeiras-checkout2.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -295,10 +296,24 @@ function App() {
         <hr className="line" />
         <div className="container">
             <Form>
-                <Form.Group id="formGridCheckbox">
-                    <Form.Check type="checkbox" label="Boleto bancário" />
+                <Form.Group id="boleto">
+                    <Form.Check type="radio" label="Boleto bancário" />
                 </Form.Group>
                 <hr className="line"/>
+                <Form.Group id="cartao">
+                    <Form.Check type="radio" label="Cartão de crédito ou débito" />
+                </Form.Group>
+                <Form.Group id="address">
+                    <Form.Check type="checkbox" label="My billing and shipping address are the same" />
+                    <Form.Text>
+                      Jackson Garcia <br />
+                      Avenida Salvador Allende, 5400, Recreio dos bandeirantes <br/>
+                      Rio de Janeiro, Rio de Janeiro 22729-714 <br/>
+                      Brasil<br/>
+                      <p className="number-blue">21980491917</p>
+                    </Form.Text>
+                    <img src={bandeira} />
+                </Form.Group>
                 <Button variant="primary" type="submit">
                     Place Order
                 </Button>
