@@ -1,37 +1,50 @@
 details {
-  padding: 15px;
-  background-color: #f6f7f8;
+    padding: 15px;
+    background-color: #f6f7f8;
 }
+
 
 /*
 Estilização texto principal, titulo: "Aditum pagamentos"
 */
+
 .title-large {
-  font-size: 130%;
+    font-size: 130%;
 }
 
-
-  .line {
+.line {
     margin-top: 0rem;
     margin-bottom: 0rem;
-    border-top: 2px solid rgba(0,0,0,.100);
+    border-top: 2px solid rgba(0, 0, 0, .100);
 }
 
 .number-blue {
-  color: blue;
+    color: blue;
 }
 
-
-
-
-/* summary::-webkit-details-marker {
-  display: none;
+strong.text-color {
+    color: red;
 }
-<Button variant="primary" type="submit">
-                Checkout
-              </Button>
-summary:before {
-  content: "\25b8";  the new icon
-  color: #696f7c;
-  margin-right: 5px;
-} */
+
+input#CPF {
+    margin-bottom: 3%;
+}
+
+button.btn.btn-primary.right {
+    margin-left: 80%;
+    margin-bottom: 10%;
+    margin-top: 1%;
+}
+
+label.left {
+    margin-left: -5%;
+}
+
+input.date {
+    margin-left: 2%;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
