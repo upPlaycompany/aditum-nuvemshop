@@ -29,7 +29,7 @@ function App() {
                   </Form.Control>
                   <Form.Text>
                     Ativar método de pagamento Aditum.
-                </Form.Text>
+                  </Form.Text>
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -43,7 +43,7 @@ function App() {
                   </Form.Control>
                   <Form.Text>
                     Selecione entre homologação para teste de desenvolvimento e produção
-                </Form.Text>
+                  </Form.Text>
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -89,7 +89,7 @@ function App() {
                   <Form.Control type="number" min="0" placeholder="3" />
                   <Form.Text>
                     Depois de quanto o pedido pendente de pagamento deve ser cancelado. Defina em dias.
-                </Form.Text>
+                  </Form.Text>
                 </Col>
               </Form.Group>
               <Form.Group as={Row}>
@@ -189,39 +189,12 @@ function App() {
               <Form.Group as={Row}>
                 <Form.Label column sm={4}>
                   Máximo de parcelas
-              </Form.Label>
+                </Form.Label>
                 <Col>
-                  <Form.Control size="sm" type="number" min="0" max="20" placeholder="20" >
-
+                  <Form.Control size="sm" type="number" min="1" max="20" placeholder="1" >
                   </Form.Control>
                   <Form.Text>
                     Selecione o número limite permitido nos cartões de crédito.
-                  </Form.Text>
-                </Col>
-              </Form.Group>
-            </Form>
-          </div>
-        </details>
-
-        {/* Details para Aditum Cartão de Débito */}
-
-        <hr className="line" />
-        <details>
-          <summary className="title-large">Aditum Cartão de débito</summary>
-          <h6 className="text-left small">Aditum - pagamentos por cartão de débito</h6>
-          <div className="container">
-            <Form className="text-right">
-              <Form.Group as={Row}>
-                <Form.Label column sm={4}>
-                  Ativar cartão de Débito
-                </Form.Label>
-                <Col>
-                  <Form.Control size="sm" as="select">
-                    <option>yes</option>
-                    <option>no</option>
-                  </Form.Control>
-                  <Form.Text>
-                    Ativar pagamento com cartão de débito atráves da Aditum.
                   </Form.Text>
                 </Col>
               </Form.Group>
@@ -287,10 +260,10 @@ function App() {
                   Valor percentual da multa
                 </Form.Label>
                 <Col sm={8}>
-                  <Form.Control type="text" placeholder="3" />
+                  <Form.Control type="text" />
                   <Form.Text>
                     Valor percentual sobre o valor original aplicados de multa.
-                </Form.Text>
+                  </Form.Text>
                 </Col>
               </Form.Group>
             </Form>
@@ -305,16 +278,16 @@ function App() {
                 <Card>
                   <Accordion.Toggle as={Card.Header} eventKey="0">
                     <input type="radio" id="male" name="gender" value="male" />Boleto
-                </Accordion.Toggle>
+                  </Accordion.Toggle>
                   <Accordion.Collapse eventKey="0">
                     <Card.Body>
                       <Form.Group id="address">
                         <Form.Check type="checkbox" label="My billing and shipping address are the same" />
                         <Form.Text>
                           Jackson Garcia <br />
-                      Avenida Salvador Allende, 5400, Recreio dos bandeirantes <br />
-                      Rio de Janeiro, Rio de Janeiro 22729-714 <br />
-                      Brasil<br />
+                          Avenida Salvador Allende, 5400, Recreio dos bandeirantes <br />
+                          Rio de Janeiro, Rio de Janeiro 22729-714 <br />
+                          Brasil<br />
                           <p className="number-blue">21980491917</p>
                         </Form.Text>
                       </Form.Group>
@@ -335,16 +308,16 @@ function App() {
                 <Card>
                   <Accordion.Toggle as={Card.Header} eventKey="0">
                     <input type="radio" id="male" name="gender" value="male" />Cartão de crédito - até 20x
-                </Accordion.Toggle>
+                  </Accordion.Toggle>
                   <Accordion.Collapse eventKey="0">
                     <Card.Body>
                       <Form.Group id="address">
                         <Form.Check type="checkbox" label="My billing and shipping address are the same" />
                         <Form.Text>
                           Jackson Garcia <br />
-                      Avenida Salvador Allende, 5400, Recreio dos bandeirantes <br />
-                      Rio de Janeiro, Rio de Janeiro 22729-714 <br />
-                      Brasil<br />
+                          Avenida Salvador Allende, 5400, Recreio dos bandeirantes <br />
+                          Rio de Janeiro, Rio de Janeiro 22729-714 <br />
+                          Brasil<br />
                           <p className="number-blue">21980491917</p>
                         </Form.Text>
                       </Form.Group>
@@ -377,6 +350,21 @@ function App() {
                           <Form.Control type="text" placeholder="0000 00000 00000 0000" />
                         </Col>
                       </Form.Group>
+                      <Form.Group as={Row} controlId="Titula-name-number-cart-validade">
+                        <Col sm={4}>
+                          <Form.Label className="left" column sm={12}>
+                            Data de Validade <strong className="text-color">*</strong>
+                          </Form.Label>
+                          <Row className="teste">
+                            <Col>
+                              <Form.Control type="text" placeholder="MM" />
+                            </Col>
+                            <Col>
+                              <Form.Control type="text" placeholder="AA" />
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Form.Group>
                       <a href="www.google.com.br"><Form.Check type="checkbox" label="TERMOS E CONDIÇÕES" /></a>
 
                     </Card.Body>
@@ -386,7 +374,7 @@ function App() {
             </div>
             <Button variant="primary right" type="submit">
               Checkout
-                </Button>
+            </Button>
           </Form>
         </div>
       </main>

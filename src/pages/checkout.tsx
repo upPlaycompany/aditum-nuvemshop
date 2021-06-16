@@ -10,7 +10,7 @@ function Checkout() {
             <div>
               <Accordion defaultActiveKey="1">
                 <Card>
-                  <Accordion.Toggle as={Card.Header} eventKey="0">
+                  <Accordion.Toggle as={Card.Header} eventKey="1">
                     <input type="radio" id="male" name="gender" value="male" />Boleto
                 </Accordion.Toggle>
                   <Accordion.Collapse eventKey="0">
@@ -93,7 +93,7 @@ function Checkout() {
             </div>
             <Button variant="primary right" type="submit">
               Checkout
-                </Button>
+            </Button>
           </Form>
         </div>
     );
