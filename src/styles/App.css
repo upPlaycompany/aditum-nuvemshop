@@ -9,6 +9,7 @@ Estilização texto principal, titulo: "Aditum pagamentos"
 
 .title-large {
     font-size: 130%;
+    text-align: left;
 }
 
 .line {
@@ -31,6 +32,12 @@ input#CPF {
 
 button.btn.btn-primary.right {
     margin-left: 80%;
+    margin-bottom: 10%;
+    margin-top: 1%;
+}
+
+button.btn.btn-primary.config {
+    margin-right: 46%;
     margin-bottom: 10%;
     margin-top: 1%;
 }
