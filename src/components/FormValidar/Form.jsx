@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+
 const [campos, setCampos] = useState({
     txtAtivar: '',
     txtAmbiente: '',
@@ -31,4 +33,9 @@ const [campos, setCampos] = useState({
 function handleInputChange(event) {
     campos[event.target.name] = event.target.value;
     setCampos(campos);
+}
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    console.log(campos);
 }
