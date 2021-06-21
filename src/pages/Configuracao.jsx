@@ -1,12 +1,61 @@
 import '../styles/App.css';
-import { Form, Row, Col, Button, Card } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState} from 'react';
 
-function configuracao(){
+
+export default function Configuracao(){
+
+    const [campos, setCampos] = useState({
+        txtAtivar: '',
+        txtAmbiente: '',
+        txtTipoFraude: '',
+        txtIdFraude: '',
+        txtCNPJ: '',
+        txtMercToken: '',
+        txtTimeExpire: 0,
+        txtStatus: '',
+        txtRua: '',
+        txtNumero: '',
+        txtComplemento: '',
+        txtBairro: '',
+
+        //Aditum Cartão de crédito
+
+        txtAtivarCredito: '',
+        txtParcelas: 0,
+
+        //Aditum Boleto
+
+        txtAtivarBoleto: '',
+        txtVencimento: 0,
+        txtDiasMulta: 0,
+        txtFixoMulta: 0,
+        txtPercentualMulta: 0,
+
+
+
+    });
+
+    console.log(campos);
+
+    function handleInputChange(event) {
+        campos[event.target.name] = event.target.value;
+        setCampos(campos);
+        console.log(campos);
+
+    }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        console.log(campos);
+    }
+
+
     return (
         <div className="container">
             <main >
-                <Form className="text-right">
+                <Form className="text-right" onSubmit={handleFormSubmit} >
                 {/* Details para Aditum pagementos */}
                 <details>
                     <summary className="title-large">Aditum pagamentos</summary>
@@ -19,7 +68,7 @@ function configuracao(){
                                     Ativar
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtAtivar" id="txtAtivar" onChange={handleInputChange}>
                                         <option>Yes</option>
                                         <option>No</option>
                                     </Form.Control>
@@ -33,7 +82,7 @@ function configuracao(){
                                     Ambiente
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtAmbiente" id="txtAmbiente" onChange={handleInputChange}>
                                         <option>Homologação</option>
                                         <option>Produtivo</option>
                                     </Form.Control>
@@ -47,7 +96,7 @@ function configuracao(){
                                     Tipo de antiffraude
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtTipoFraude" id="txtTipoFraude" onChange={handleInputChange} >
                                         <option>Konduto</option>
                                         <option>CleanSale</option>
                                     </Form.Control>
@@ -58,7 +107,7 @@ function configuracao(){
                                     ID do antiffraude
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="text" placeholder="FDOSDFOAPSDP" />
+                                    <Form.Control type="text" placeholder="FDOSDFOAPSDP" name="txtIdFraude" id="txtIdFraude" onChange={handleInputChange} />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="CNPJ">
@@ -66,7 +115,7 @@ function configuracao(){
                                     CNPJ
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="text" placeholder="000000000000/000" />
+                                    <Form.Control type="text" placeholder="000000000000/000" name="txtCNPJ" id="txtCNPJ" onChange={handleInputChange} />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="merchantToken">
@@ -74,7 +123,7 @@ function configuracao(){
                                     Merchant Token
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="text" placeholder="dajsn_ajsdnasdapLKNDLASNDFL" />
+                                    <Form.Control type="text" placeholder="dajsn_ajsdnasdapLKNDLASNDFL" name="txtMercToken" id="txtMercToken" onChange={handleInputChange} />
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="timeExpire">
@@ -82,7 +131,7 @@ function configuracao(){
                                     Tempo de expiração do pedido
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="number" min="0" placeholder="3" />
+                                    <Form.Control type="number" min="0" placeholder="3" name="txtTimeExpire" id="txtTimeExpire" onChange={handleInputChange} />
                                     <Form.Text>
                                         Depois de quanto o pedido pendente de pagamento deve ser cancelado. Defina em dias.
                                     </Form.Text>
@@ -93,7 +142,7 @@ function configuracao(){
                                     Status do pedido criado
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtStatus" id="txtStatus" onChange={handleInputChange}>
                                         <option>pending</option>
                                         <option>analysis</option>
                                         <option>ready</option>
@@ -106,18 +155,7 @@ function configuracao(){
                                     Definições do endereço - rua
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
-                                        <option>line 0</option>
-                                        <option>line 1</option>
-                                    </Form.Control>
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row}>
-                                <Form.Label column sm={4}>
-                                    Definições do endereço - rua
-                                </Form.Label>
-                                <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtRua" id="txtRua" onChange={handleInputChange}>
                                         <option>line 0</option>
                                         <option>line 1</option>
                                     </Form.Control>
@@ -128,7 +166,7 @@ function configuracao(){
                                     Definições do endereço - Número
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtNumero" id="txtNumero" onChange={handleInputChange} >
                                         <option>line 0</option>
                                         <option>line 1</option>
                                     </Form.Control>
@@ -139,7 +177,7 @@ function configuracao(){
                                     Definições do endereço - Complemento
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtComplemento" id="txtComplement" onChange={handleInputChange} >
                                         <option>line 0</option>
                                         <option>line 1</option>
                                     </Form.Control>
@@ -150,7 +188,7 @@ function configuracao(){
                                     Definições do endereço - Bairro
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtBairro" id="txtBairro" onChange={handleInputChange} >
                                         <option>line 0</option>
                                         <option>line 1</option>
                                     </Form.Control>
@@ -171,7 +209,7 @@ function configuracao(){
                                     Ativar cartão de crédito
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtAtivarCredito" id="txtAtivarCredito" onChange={handleInputChange}>
                                         <option>yes</option>
                                         <option>no</option>
                                     </Form.Control>
@@ -185,7 +223,7 @@ function configuracao(){
                                     Máximo de parcelas
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" type="number" min="1" max="20" placeholder="1" >
+                                    <Form.Control size="sm" type="number" min="1" max="20" placeholder="1" name="txtParcelas" id="txtParcelas" onChange={handleInputChange} >
                                     </Form.Control>
                                     <Form.Text>
                                         Selecione o número limite permitido nos cartões de crédito.
@@ -211,7 +249,7 @@ function configuracao(){
                                     Ativar Boleto
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select">
+                                    <Form.Control size="sm" as="select" name="txtAtivarBoleto" id="txtAtivarBoleto" onChange={handleInputChange} >
                                         <option>Yes</option>
                                         <option>No</option>
                                     </Form.Control>
@@ -225,7 +263,7 @@ function configuracao(){
                                     Dias para vencimentos do boleto
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="number" min="0" placeholder="0" />
+                                    <Form.Control type="number" min="0" placeholder="0" name="txtVencimento" id="txtVencimento" onChange={handleInputChange} />
                                     <Form.Text>Tempo em dias para o vencimento do boleto a parti da data de gereção</Form.Text>
                                 </Col>
                             </Form.Group>
@@ -234,7 +272,7 @@ function configuracao(){
                                     Dias para multa
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="number" min="0" placeholder="0" />
+                                    <Form.Control type="number" min="0" placeholder="0" name="txtDiasMulta" id="txtDiasMulta" onChange={handleInputChange} />
                                     <Form.Text>Tempo em dias para a aplicação de multa do boleto a parti da data de gereção</Form.Text>
                                 </Col>
                             </Form.Group>
@@ -243,7 +281,7 @@ function configuracao(){
                                     Valor fixo da multa
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="number" min="0" placeholder="0" />
+                                    <Form.Control type="number" min="0" placeholder="0" name="txtFixoMulta" id="txtFixoMulta" onChange={handleInputChange} />
                                     <Form.Text>Tempo em dias para a aplicação de multa do boleto a parti da data de gereção</Form.Text>
                                 </Col>
                             </Form.Group>
@@ -252,7 +290,7 @@ function configuracao(){
                                     Valor percentual da multa
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="text" />
+                                    <Form.Control type="text" name="txtPercentualMulta" id="txtPercentualMulta" onChange={handleInputChange} />
                                     <Form.Text>
                                         Valor percentual sobre o valor original aplicados de multa.
                                     </Form.Text>
@@ -268,5 +306,3 @@ function configuracao(){
         </div>
     );
 }
-
-export default configuracao;
