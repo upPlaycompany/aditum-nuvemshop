@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import checkout from './pages/checkout';
-import configuracao from './pages/configuracao';
+import configuracao from './pages/Configuracao';
 
 
 function Routes(){

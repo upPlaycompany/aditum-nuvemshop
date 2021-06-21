@@ -1,9 +1,57 @@
 import '../styles/App.css';
-import { Form, Row, Col, Button, Card } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../components/FormValidar/Form';
+import {useState} from 'react';
 
-function configuracao(){
+
+export default function Configuracao(){
+
+    const [campos, setCampos] = useState({
+        txtAtivar: '',
+        txtAmbiente: '',
+        txtTipoFraude: '',
+        txtIdFraude: '',
+        txtCNPJ: '',
+        txtMercToken: '',
+        txtTimeExpire: 0,
+        txtStatus: '',
+        txtRua: '',
+        txtNumero: '',
+        txtComplemento: '',
+        txtBairro: '',
+
+        //Aditum Cartão de crédito
+
+        txtAtivarCredito: '',
+        txtParcelas: 0,
+
+        //Aditum Boleto
+
+        txtAtivarBoleto: '',
+        txtVencimento: 0,
+        txtDiasMulta: 0,
+        txtFixoMulta: 0,
+        txtPercentualMulta: 0,
+
+
+
+    });
+
+    console.log(campos);
+
+    function handleInputChange(event) {
+        campos[event.target.name] = event.target.value;
+        setCampos(campos);
+        console.log(campos);
+
+    }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        console.log(campos);
+    }
+
+
     return (
         <div className="container">
             <main >
@@ -201,7 +249,7 @@ function configuracao(){
                                     Ativar Boleto
                                 </Form.Label>
                                 <Col>
-                                    <Form.Control size="sm" as="select" name="txtAtivarCredito" id="txtAtivarCredito" onChange={handleInputChange} >
+                                    <Form.Control size="sm" as="select" name="txtAtivarBoleto" id="txtAtivarBoleto" onChange={handleInputChange} >
                                         <option>Yes</option>
                                         <option>No</option>
                                     </Form.Control>
@@ -258,5 +306,3 @@ function configuracao(){
         </div>
     );
 }
-
-export default configuracao;

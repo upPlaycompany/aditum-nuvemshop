@@ -1,41 +1,48 @@
-import React, { useEffect, useState } from 'react';
 
-const [campos, setCampos] = useState({
-    txtAtivar: '',
-    txtAmbiente: '',
-    txtTipoFraude: '',
-    txtIdFraude: '',
-    txtCNPJ: '',
-    txtMercToken: '',
-    txtTimeExpire: 0,
-    txtStatus: '',
-    txtRua: '',
-    txtNumero: '',
-    txtComplemento: '',
-    txtBairro: '',
+import React from 'react';
 
-    //Aditum Cartão de crédito
+const Message = () => {
+    const [campos, setCampos] = React.useState({
+        txtAtivar: '',
+        txtAmbiente: '',
+        txtTipoFraude: '',
+        txtIdFraude: '',
+        txtCNPJ: '',
+        txtMercToken: '',
+        txtTimeExpire: 0,
+        txtStatus: '',
+        txtRua: '',
+        txtNumero: '',
+        txtComplemento: '',
+        txtBairro: '',
 
-    txtAtivarCredito: '',
-    txtParcelas: 0,
+        //Aditum Cartão de crédito
 
-    //Aditum Cartão de crédito
+        txtAtivarCredito: '',
+        txtParcelas: 0,
 
-    txtAtivarCredito: '',
-    txtVencimento: 0,
-    txtDiasMulta: 0,
-    txtFixoMulta: 0,
-    txtPercentualMulta: 0,
+        //Aditum Boleto
+
+        txtAtivarBoleto: '',
+        txtVencimento: 0,
+        txtDiasMulta: 0,
+        txtFixoMulta: 0,
+        txtPercentualMulta: 0,
 
 
 
-});
-function handleInputChange(event) {
-    campos[event.target.name] = event.target.value;
-    setCampos(campos);
+    });
+
+
+    function handleInputChange(event) {
+        campos[event.target.name] = event.target.value;
+        setCampos(campos);
+    }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        console.log(campos);
+    }
 }
 
-function handleFormSubmit(event) {
-    event.preventDefault();
-    console.log(campos);
-}
+export default Message;
